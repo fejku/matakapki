@@ -4,11 +4,25 @@
   height: 100%;
 }
 
+.Wybor * {
+  font-size: 8vw;
+  font-weight: 400;
+}
+
 .Kolor {
   flex-basis: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.Wynik {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.5vw;
+  color: black;
 }
 
 .Przyciski {
@@ -18,8 +32,19 @@
 
 .Przycisk {
   flex-basis: 100%;
-  border: 1px solid black;
-  margin: 5px;
+  border: 2px solid white;
   background-color: white;
   cursor: pointer;
+}
+
+.PrzyciskTak {
+  border-right: 1px solid white;
+  background-color: #4caf50;
+  color: white;
+}
+
+.PrzyciskNie {
+  border-left: 1px solid white;
+  background-color: #f44336;
+  color: white;
 }

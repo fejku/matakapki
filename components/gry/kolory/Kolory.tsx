@@ -17,9 +17,9 @@ const Kolory: React.FC<Props> = () => {
 
   switch (stan) {
     case STAN.POCZATEK:
-      return <Poczatek setStan={setStan} />;
+      return <Poczatek setStan={setStan} setWynik={setWynik} />;
     case STAN.WYBOR:
-      return <Wybor setStan={setStan} setWynik={setWynik} />;
+      return <Wybor setStan={setStan} wynik={wynik} setWynik={setWynik} />;
     case STAN.WYNIK:
       return <Wynik setStan={setStan} wynik={wynik} />;
   }
