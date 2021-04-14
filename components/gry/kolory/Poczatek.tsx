@@ -1,3 +1,4 @@
+import styles from "./Poczatek.module.css";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { STAN } from "./Kolory";
 
@@ -16,8 +17,10 @@ const Poczatek: React.FC<Props> = ({ setStan, setWynik }) => {
   };
 
   return (
-    <div>
-      <button onClick={handleStartClick}>Start</button>
+    <div className={styles.Poczatek}>
+      <button onClick={handleStartClick} className={styles.StartButton}>
+        Start
+      </button>
     </div>
   );
 };

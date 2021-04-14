@@ -42,7 +42,7 @@ const Wybor: React.FC<Props> = ({ setStan, wynik, setWynik }) => {
     timer.current = setTimeout(() => {
       setProgress((p) => {
         if (p < 100) {
-          p += 1;
+          p += 5;
         } else {
           setStan(STAN.WYNIK);
         }

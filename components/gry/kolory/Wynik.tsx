@@ -1,3 +1,4 @@
+import styles from "./Wynik.module.css";
 import { Dispatch, SetStateAction } from "react";
 import { STAN } from "./Kolory";
 
@@ -12,8 +13,10 @@ const Wynik: React.FC<Props> = ({ setStan, wynik }) => {
   };
 
   return (
-    <div>
-      <button onClick={handleWynikClick}>Twój wynik: {wynik}</button>
+    <div className={styles.Wynik}>
+      <button onClick={handleWynikClick} className={styles.StartButton}>
+        Twój wynik: {wynik}
+      </button>
     </div>
   );
 };

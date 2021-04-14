@@ -1,0 +1,17 @@
+.Poczatek {
+  height: 100%;
+  display: flex;
+}
+
+.StartButton {
+  flex-grow: 1;
+  margin: 8px;
+  border: none;
+  background-color: rgb(231, 231, 231);
+  font-size: 8vw;
+  cursor: pointer;
+}
+
+/* .StartButton:hover {
+  background-color: rgb(231, 231, 231);
+} */
