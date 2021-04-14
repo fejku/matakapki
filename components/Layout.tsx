@@ -15,7 +15,7 @@ export default function Layout({ children, title = "This is the default title" }
         <div className={styles.logo}>
           <Link href="/">
             <a className={styles.logoLink}>
-              <img src="./logo.png" className={styles.logoImg} />
+              <img src="/logo.png" className={styles.logoImg} />
             </a>
           </Link>
         </div>
