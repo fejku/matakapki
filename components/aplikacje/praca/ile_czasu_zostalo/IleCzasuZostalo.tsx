@@ -1,39 +1,61 @@
-import { ChangeEventHandler, InputHTMLAttributes, useState } from "react";
+import { useState } from "react";
 
 interface Props {}
 
 const IleCzasuZostalo: React.FC<Props> = () => {
   const [poczatek, setPoczatek] = useState("");
+  const [czyPrzerwa, setCzyPrzerwa] = useState(false);
+  const [przerwaPoczatek, setPrzerwaPoczatek] = useState("");
+  const [przerwaKoniec, setPrzerwaKoniec] = useState("");
 
-  const handlePoczatekChange = (e: InputHTMLAttributes<HTMLInputElement>) => {
+  const handlePoczatekChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPoczatek(e.target.value);
   };
 
-  const a = () => {
-    const czas = "07:51";
-    const pozostalo = "08:00";
+  const handleCzyPrzerwaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCzyPrzerwa(e.target.checked);
+  };
 
-    const rozdzielonyCzas = czas.split(":");
+  const handlePrzerwaPoczatekChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPrzerwaPoczatek(e.target.value);
+  };
+
+  const handlePrzerwaKoniecChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPrzerwaKoniec(e.target.value);
   };
 
   const wylicz = () => {
-    if (poczatek) {
+    if (!poczatek) {
+      return "";
     }
+
+    const [poczatekGodzina, poczatekMinuty] = poczatek.split(":");
+    if (czyPrzerwa) {
+      const [poczatekPrzerwyGodzina, poczatekPrzerwyMinuty] = przerwaPoczatek.split(":");
+      const [koniecPrzerwyGodzina, koniecPrzerwyMinuty] = przerwaKoniec.split(":");
+
+      const iloscMinutPoczatekPrzerwy = parseInt(poczatekPrzerwyGodzina) * 60 + parseInt(poczatekPrzerwyMinuty);
+      const iloscMinutKoniecPrzerwy = parseInt(koniecPrzerwyGodzina) * 60 + parseInt(koniecPrzerwyMinuty);
+      const roznicaMinut = iloscMinutKoniecPrzerwy - iloscMinutPoczatekPrzerwy;
+    }
+    const godzinaPoDodaniu = parseInt(poczatekGodzina) + 8;
+    const godzinaWynik = godzinaPoDodaniu < 10 ? `0${godzinaPoDodaniu}` : godzinaPoDodaniu.toString();
+    return `${godzinaWynik}:${poczatekMinuty}`;
   };
 
   return (
     <div>
       <div>
-        <label htmlFor="appt-time">Początek</label>
-        <input id="appt-time" type="time" name="appt-time" value={poczatek} onChange={handlePoczatekChange}></input>
+        <label htmlFor="inputPoczatek">Początek</label>
+        <input type="time" name="inputPoczatek" value={poczatek} onChange={handlePoczatekChange} />
       </div>
       <div>
-        <input type="checkbox" />
-        <label htmlFor="appt-time">Przerwa od</label>
-        <input id="appt-time" type="time" name="appt-time" value={poczatek} onChange={handlePoczatekChange}></input>
+        <input type="checkbox" checked={czyPrzerwa} onChange={handleCzyPrzerwaChange} />
+        <label htmlFor="inputPrzerwaPoczatek">Przerwa od</label>
+        <input type="time" name="inputPrzerwaPoczatek" value={przerwaPoczatek} onChange={handlePrzerwaPoczatekChange} />
 
-        <label htmlFor="appt-time">do</label>
-        <input id="appt-time" type="time" name="appt-time" value={poczatek} onChange={handlePoczatekChange}></input>
+        <label htmlFor="inputPrzerwaKoniec">do</label>
+        <input type="time" name="inputPrzerwaKoniec" value={przerwaKoniec} onChange={handlePrzerwaKoniecChange} />
       </div>
       <div>Koniec {wylicz()}</div>
     </div>
