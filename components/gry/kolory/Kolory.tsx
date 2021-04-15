@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Poczatek from "./Poczatek";
-import Wybor from "./Wybor";
-import Wynik from "./Wynik";
+import Poczatek from "./poczatek/Poczatek";
+import Wybor from "./wybor/Wybor";
+import Wynik from "./wynik/Wynik";
 
 export enum STAN {
   POCZATEK,

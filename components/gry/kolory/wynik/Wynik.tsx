@@ -1,6 +1,6 @@
 import styles from "./Wynik.module.css";
 import { Dispatch, SetStateAction } from "react";
-import { STAN } from "./Kolory";
+import { STAN } from "../Kolory";
 
 interface Props {
   setStan: Dispatch<SetStateAction<STAN>>;

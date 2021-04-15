@@ -21,14 +21,14 @@ export default function Layout({ children, title = "This is the default title" }
         </div>
 
         <nav>
-          <Link href="/cv">
-            <a>CV</a>
-          </Link>
           <Link href="/gry">
             <a>Gry</a>
           </Link>
           <Link href="/aplikacje">
             <a>Aplikacje</a>
+          </Link>
+          <Link href="/cv">
+            <a>CV</a>
           </Link>
         </nav>
       </header>

@@ -1,0 +1,17 @@
+.Gry {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 16px;
+  margin: 16px;
+}
+
+.Gra {
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,6 +1,6 @@
 import styles from "./Poczatek.module.css";
 import { Dispatch, SetStateAction, useEffect } from "react";
-import { STAN } from "./Kolory";
+import { STAN } from "../Kolory";
 
 interface Props {
   setStan: Dispatch<SetStateAction<STAN>>;

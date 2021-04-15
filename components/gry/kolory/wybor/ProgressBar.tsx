@@ -1,13 +1,13 @@
 import styles from "./ProgressBar.module.css";
 
 interface Props {
-  progress: number;
+  postep: number;
 }
 
-const ProgressBar: React.FC<Props> = ({ progress }) => {
+const ProgressBar: React.FC<Props> = ({ postep }) => {
   return (
     <div className={styles.ProgressBar}>
-      <div className={styles.ProgressBarDone} style={{ width: `${progress}%` }} />
+      <div className={styles.ProgressBarDone} style={{ width: `${postep}%` }} />
     </div>
   );
 };
