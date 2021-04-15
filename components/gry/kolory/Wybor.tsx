@@ -17,6 +17,9 @@ const listaKolorow: Kolor[] = [
   { kolor: "black", nazwa: "Czarny" },
 ];
 
+const ODSWIEZANIE_MS = 100;
+const CZAS_NA_ODPOWIEDZ_MS = 2000;
+
 const wylosujKolor = (listaKolorow: Kolor[]) => {
   const kolorIndex = Math.floor(Math.random() * listaKolorow.length);
   return listaKolorow[kolorIndex];
@@ -42,13 +45,13 @@ const Wybor: React.FC<Props> = ({ setStan, wynik, setWynik }) => {
     timer.current = setTimeout(() => {
       setProgress((p) => {
         if (p < 100) {
-          p += 5;
+          p += Math.floor(ODSWIEZANIE_MS / (CZAS_NA_ODPOWIEDZ_MS / ODSWIEZANIE_MS));
         } else {
           setStan(STAN.WYNIK);
         }
         return p;
       });
-    }, 100);
+    }, ODSWIEZANIE_MS);
   }, [progress]);
 
   const handleTakClick = () => {
