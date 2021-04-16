@@ -5,12 +5,15 @@ import { wylosujCzasOczekiwaniaMs } from "./OczekiwanieUtils";
 
 interface Props {
   setStan: Dispatch<SetStateAction<STAN>>;
+  setWynik: Dispatch<SetStateAction<number>>;
 }
 
-const Oczekiwanie: React.FC<Props> = ({ setStan }) => {
+const Oczekiwanie: React.FC<Props> = ({ setStan, setWynik }) => {
   const timer = useRef(null);
 
   useEffect(() => {
+    setWynik(0);
+
     const wylosowanyCzas = wylosujCzasOczekiwaniaMs(3000);
 
     timer.current = setTimeout(() => {

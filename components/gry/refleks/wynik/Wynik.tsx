@@ -11,17 +11,17 @@ const Wynik: React.FC<Props> = ({ setStan, wynik }) => {
   const [wynikSformatowany, setWynikSformatowany] = useState("");
 
   useEffect(() => {
-    let a = ";";
+    let sformatowanyWynik = "";
     if (wynik) {
-      a = `Twój wynik: ${wynik.toFixed(4)} sek.`;
+      sformatowanyWynik = `Twój wynik: ${wynik.toFixed(4)} sek.`;
     } else {
-      a = "Bądź bardziej cierpliwy!!!";
+      sformatowanyWynik = "Bądź bardziej cierpliwy!!!";
     }
-    setWynikSformatowany(a);
+    setWynikSformatowany(sformatowanyWynik);
   }, []);
 
   const handleWynikClick = () => {
-    setStan(STAN.POCZATEK);
+    setStan(STAN.OCZEKIWANIE);
   };
 
   return (

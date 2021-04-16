@@ -2,9 +2,10 @@
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   gap: 16px;
   margin: 16px;
+  align-content: flex-start;
 }
 
 .Gra {

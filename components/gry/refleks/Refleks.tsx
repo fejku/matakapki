@@ -19,9 +19,9 @@ const Refleks: React.FC<Props> = () => {
 
   switch (stan) {
     case STAN.POCZATEK:
-      return <Poczatek setStan={setStan} setWynik={setWynik} />;
+      return <Poczatek setStan={setStan} />;
     case STAN.OCZEKIWANIE:
-      return <Oczekiwanie setStan={setStan} />;
+      return <Oczekiwanie setStan={setStan} setWynik={setWynik} />;
     case STAN.GRA:
       return <Gra setStan={setStan} setWynik={setWynik} />;
     case STAN.WYNIK:

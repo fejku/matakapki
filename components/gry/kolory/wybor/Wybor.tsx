@@ -21,6 +21,8 @@ const Wybor: React.FC<Props> = ({ setStan, wynik, setWynik }) => {
   const timer = useRef(null);
 
   useEffect(() => {
+    setWynik(0);
+
     const nowyWylosowanyKolor = wylosujKolor();
     const nowyDrugiKolor = wylosujDrugiKolor(nowyWylosowanyKolor);
 

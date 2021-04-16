@@ -9,7 +9,7 @@ interface Props {
 
 const Wynik: React.FC<Props> = ({ setStan, wynik }) => {
   const handleWynikClick = () => {
-    setStan(STAN.POCZATEK);
+    setStan(STAN.WYBOR);
   };
 
   return (

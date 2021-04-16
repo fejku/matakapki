@@ -1,17 +1,12 @@
 import styles from "./Poczatek.module.css";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { STAN } from "../Refleks";
 
 interface Props {
   setStan: Dispatch<SetStateAction<STAN>>;
-  setWynik: Dispatch<SetStateAction<number>>;
 }
 
-const Poczatek: React.FC<Props> = ({ setStan, setWynik }) => {
-  useEffect(() => {
-    setWynik(0);
-  }, []);
-
+const Poczatek: React.FC<Props> = ({ setStan }) => {
   const handleStartClick = () => {
     setStan(STAN.OCZEKIWANIE);
   };
