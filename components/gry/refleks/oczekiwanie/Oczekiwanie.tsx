@@ -1,11 +1,7 @@
 import styles from "./Oczekiwanie.module.css";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import { STAN } from "../Refleks";
-
-const wylosujCzasOczekiwaniaMs = (maxCzas: number) => {
-  const MINIMALNY_CZAS = 1000;
-  return Math.floor(Math.random() * maxCzas) + MINIMALNY_CZAS;
-};
+import { wylosujCzasOczekiwaniaMs } from "./OczekiwanieUtils";
 
 interface Props {
   setStan: Dispatch<SetStateAction<STAN>>;

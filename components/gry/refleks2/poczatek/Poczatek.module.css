@@ -1,9 +1,9 @@
-.Oczekiwanie {
+.Poczatek {
   height: 100%;
   display: flex;
 }
 
-.Button {
+.StartButton {
   flex-grow: 1;
   margin: 8px;
   border: none;
@@ -11,3 +11,7 @@
   font-size: 8vw;
   cursor: pointer;
 }
+
+/* .StartButton:hover {
+  background-color: rgb(231, 231, 231);
+} */

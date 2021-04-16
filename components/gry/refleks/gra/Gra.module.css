@@ -1,0 +1,13 @@
+.Gra {
+  height: 100%;
+  display: flex;
+}
+
+.Button {
+  flex-grow: 1;
+  margin: 8px;
+  border: none;
+  background-color: rgb(188, 255, 126);
+  font-size: 8vw;
+  cursor: pointer;
+}

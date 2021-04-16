@@ -1,5 +1,4 @@
 import styles from "./IleCzasuZostalo.module.css";
-
 import { useEffect, useState } from "react";
 import { wyznaczCzas } from "./IleCzasuZostaloUtils";
 import clsx from "clsx";
