@@ -22,5 +22,5 @@ export const wylosujKolor = (poprzedniKolor: Kolor = null) => {
 };
 
 export const wylosujDrugiKolor = (kolor: Kolor) => {
-  return Math.floor(Math.random() * 2) === 0 ? kolor : wylosujKolor();
+  return Math.random() < 0.5 ? kolor : wylosujKolor();
 };

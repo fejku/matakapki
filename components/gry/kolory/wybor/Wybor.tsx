@@ -15,10 +15,18 @@ interface Props {
 }
 
 const Wybor: React.FC<Props> = ({ setStan, wynik, setWynik }) => {
-  const [wylosowanyKolor, setWylosowanyKolor] = useState(wylosujKolor());
-  const [drugiKolor, setDrugiKolor] = useState(wylosujDrugiKolor(wylosowanyKolor));
+  const [wylosowanyKolor, setWylosowanyKolor] = useState({ kolor: "red", nazwa: "Czerwony" });
+  const [drugiKolor, setDrugiKolor] = useState({ kolor: "red", nazwa: "Czerwony" });
   const [postep, setPostep] = useState(0);
   const timer = useRef(null);
+
+  useEffect(() => {
+    const nowyWylosowanyKolor = wylosujKolor();
+    const nowyDrugiKolor = wylosujDrugiKolor(nowyWylosowanyKolor);
+
+    setWylosowanyKolor(nowyWylosowanyKolor);
+    setDrugiKolor(nowyDrugiKolor);
+  }, []);
 
   useEffect(() => {
     timer.current = setTimeout(() => {
@@ -36,8 +44,12 @@ const Wybor: React.FC<Props> = ({ setStan, wynik, setWynik }) => {
 
   const ustawStanPoprawny = () => {
     clearTimeout(timer.current);
-    setWylosowanyKolor(wylosujKolor());
-    setDrugiKolor(wylosujDrugiKolor(wylosowanyKolor));
+
+    const nowyWylosowanyKolor = wylosujKolor(wylosowanyKolor);
+    const nowyDrugiKolor = wylosujDrugiKolor(nowyWylosowanyKolor);
+    setWylosowanyKolor(nowyWylosowanyKolor);
+    setDrugiKolor(nowyDrugiKolor);
+
     setWynik(wynik + 1);
     setPostep(0);
   };
