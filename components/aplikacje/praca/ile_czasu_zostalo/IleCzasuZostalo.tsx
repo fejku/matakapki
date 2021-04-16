@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { formatujMinutyNaCzas, podajIloscMinutDlaPrzerwy, zamienCzasNaMinuty } from "./IleCzasuZostaloUtils";
 
 interface Props {}
 
 const IleCzasuZostalo: React.FC<Props> = () => {
+  const [czasPracy, setCzasPracy] = useState("08:00");
   const [poczatek, setPoczatek] = useState("");
   const [czyPrzerwa, setCzyPrzerwa] = useState(false);
   const [przerwaPoczatek, setPrzerwaPoczatek] = useState("");
   const [przerwaKoniec, setPrzerwaKoniec] = useState("");
+
+  const handleCzasPracyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCzasPracy(e.target.value);
+  };
 
   const handlePoczatekChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPoczatek(e.target.value);
@@ -29,22 +35,20 @@ const IleCzasuZostalo: React.FC<Props> = () => {
       return "";
     }
 
-    const [poczatekGodzina, poczatekMinuty] = poczatek.split(":");
-    if (czyPrzerwa) {
-      const [poczatekPrzerwyGodzina, poczatekPrzerwyMinuty] = przerwaPoczatek.split(":");
-      const [koniecPrzerwyGodzina, koniecPrzerwyMinuty] = przerwaKoniec.split(":");
+    let wynikWMinutach =
+      zamienCzasNaMinuty(czasPracy) +
+      zamienCzasNaMinuty(poczatek) +
+      podajIloscMinutDlaPrzerwy(czyPrzerwa, przerwaPoczatek, przerwaKoniec);
 
-      const iloscMinutPoczatekPrzerwy = parseInt(poczatekPrzerwyGodzina) * 60 + parseInt(poczatekPrzerwyMinuty);
-      const iloscMinutKoniecPrzerwy = parseInt(koniecPrzerwyGodzina) * 60 + parseInt(koniecPrzerwyMinuty);
-      const roznicaMinut = iloscMinutKoniecPrzerwy - iloscMinutPoczatekPrzerwy;
-    }
-    const godzinaPoDodaniu = parseInt(poczatekGodzina) + 8;
-    const godzinaWynik = godzinaPoDodaniu < 10 ? `0${godzinaPoDodaniu}` : godzinaPoDodaniu.toString();
-    return `${godzinaWynik}:${poczatekMinuty}`;
+    return formatujMinutyNaCzas(wynikWMinutach);
   };
 
   return (
     <div>
+      <div>
+        <label htmlFor="inputCzasPracy">CzasPracy</label>
+        <input type="time" name="inputCzasPracy" value={czasPracy} onChange={handleCzasPracyChange} />
+      </div>
       <div>
         <label htmlFor="inputPoczatek">Początek</label>
         <input type="time" name="inputPoczatek" value={poczatek} onChange={handlePoczatekChange} />
