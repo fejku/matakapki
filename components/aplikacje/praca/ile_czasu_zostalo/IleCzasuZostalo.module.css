@@ -1,0 +1,23 @@
+.IleCzasuZostalo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Wiersz {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Przerwa {
+  flex-direction: row;
+}
+
+.Przerwa > div {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
